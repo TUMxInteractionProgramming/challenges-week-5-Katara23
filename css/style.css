@@ -43,6 +43,10 @@ button, strong {
     z-index: -1;
 }
 
+#channel-bar {
+    z-index: 1;
+}
+
 #messages {
     position: absolute;
     width: 100%;
