@@ -223,7 +223,7 @@ li.selected {
 .message {
     width: 80%;
     margin-bottom: 8px;
-    margin-left: 2.5%;
+    margin-left: calc(2.5% + 20px);
     position: relative;
 }
 
@@ -277,23 +277,29 @@ li.selected {
 
     filter: drop-shadow(-2px 1px 1px rgba(0,0,0,.12));
 }
-/*
-.message.own p::after {
+
+.message.own p::before {
+    display: none;
+}
+
+.message.own h3::after {
     content: '';
     display: inline-block;
     position: relative;
-    right: -20px;
-    bottom: 55px;
+    left: 20px;
+    top: 20px;
 
     width: 20;
 	height: 0;
 	border-top: 0px solid transparent;
-	border-left: 20px solid lightseagreen;
+	border-left: 20px solid white;
     border-bottom: 20px solid transparent;
+
+    filter: drop-shadow(2px 1px 1px rgba(0,0,0,.12));
 }
-*/
+
 .message.own {
-    margin-left: 17.5%;
+    margin-left: calc(17.5% - 20px);
 }
 
 /* BUTTONS */
