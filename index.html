@@ -25,10 +25,12 @@
     <!-- embed external JavaScript file for app interaction -->
     <script src="js/script.js"></script>
 
+    <script src="js/emojis-list.js"></script>
+
 </head>
 
 <!-- #8 #channel #onload all channels when the body has loaded -->
-<body onload="listChannels()">
+<body onload="sortNew(); loadEmojis();">
 
 <!-- channel area -->
 <div id="channels" class="shadow-24dp">
@@ -93,21 +95,21 @@
     </ul>
 
     <!-- FAB -->
-    <div id="FAB" class="fas fa-plus accent shadow-5dp"></div>
+    <div id="FAB" class="fas fa-plus accent shadow-5dp" onclick="addChannel()"></div>
 
     <!-- TAB BAR -->
     <div id="tab-bar" class="shadow-4dp">
-        <button class="selected" id="tab-new" onclick="selectTab('#tab-new')">
+        <button class="selected" id="tab-new" onclick="selectTab('#tab-new'); sortNew();">
             <!-- #7  replacing icons -->
             <i class="far fa-lightbulb"></i>
             New
         </button>
-        <button id="tab-trending" onclick="selectTab('#tab-trending')">
+        <button id="tab-trending" onclick="selectTab('#tab-trending'); sortTrending();">
             <!-- #7  replacing icons -->
             <i class="fas fa-fire"></i>
             Trending
         </button>
-        <button id="tab-favorites" onclick="selectTab('#tab-favorites')">
+        <button id="tab-favorites" onclick="selectTab('#tab-favorites'); sortFavorites();">
             <!-- #7  replacing icons -->
             <i class="fas fa-star"></i>
             Favorites
@@ -116,6 +118,16 @@
 </div>
 
 <div id="chat">
+
+    <!-- New Channel Creation -->
+    <div id="newChannelBar">
+        <h1 class="shadow-4dp">
+            <input id="newChannelName" type="text" placeholder="Enter a #ChannelName" maxlength="140">
+            <button id="newChannelButton" class="button primary" onclick="abort()">
+                <span class="fas fa-times"></span> ABORT
+            </button>
+        </h1>
+    </div>
 
     <!-- APP BAR for CHANNEL TITLE -->
     <h1 id="channel-bar" class="shadow-4dp">
@@ -126,7 +138,7 @@
     </h1>
 
     <div id="messages">
-
+<!--
         <div class="message own">
             <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
                 Wed, June 20th, 13:37 <em>15 min. left</em></h3>
@@ -171,7 +183,7 @@
             <p>北京</p>
             <button class="button accent">+5 min.</button>
         </div>
-
+    -->
     </div>
 
     <!-- ChAT BAR -->
@@ -180,12 +192,16 @@
             <!-- #7 replacing icons -->
             <i class="far fa-smile"></i>
         </button>
-        <div id="emojis" class="shadow-24dp">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+        <div id="emojis" class="shadow-24dp">
+            <!--&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;
+            -->
+            </div>
         <!-- #8 create a new input element which accepts text and has a prefill as well as a character limit.
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">
         <!-- #8 send message requires a button -->
         <button id="input-button" class="button accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+        <button id="createChannelButton" class="button accent" onclick="createNewChannel()">CREATE</button>
     </div>
 </div>
 

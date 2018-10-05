@@ -255,7 +255,6 @@ li.selected {
 
 .message p {
     background-color: white;
-    min-height: 17px;
     padding: 16px;
     box-shadow:  0px 1px 5px 0px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14),
@@ -341,7 +340,6 @@ input:focus, button:focus {
     width: auto;
     flex-grow: 0;
     font-size: 24px;
-    /*margin-top: 15px;*/
 }
 
 #emojis-button, #input-button {
@@ -376,6 +374,38 @@ input:focus, button:focus {
     font-size: 24px;
     text-align: center;
     line-height: 50px;
+}
+
+#newChannelBar {
+    display: none;
+}
+
+#newChannelBar h1 {
+    display: flex;
+}
+
+#newChannelName{
+    height: 36px;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 16px;
+    flex-grow: 1;
+    align-self: center;
+}
+
+#newChannelButton {
+    right: 16px;
+    margin: 0;
+    flex-grow: 0;
+    align-self: center;
+}
+
+#createChannelButton {
+    display: none;
+    right: 0;
+    font-weight: bold;
+    align-self: center;
 }
 
 /* SHADOWS */
